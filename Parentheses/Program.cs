@@ -6,7 +6,7 @@ namespace Parentheses
     {
         static void Main(string[] args)
         {
-            Console.Write($"Введите строку со скобками: ");
+            Console.Write($"Введите строку с круглыми скобками: ");
             string userInput = Console.ReadLine();
 
             int depth = 0;
