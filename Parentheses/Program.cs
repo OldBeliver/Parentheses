@@ -9,35 +9,32 @@ namespace Parentheses
             Console.Write($"Введите строку со скобками: ");
             string userInput = Console.ReadLine();
 
-            int balance = 0;
             int depth = 0;
-            bool result = true;
-
+            int maxDepth = 0;
+            
             foreach (var symbol in userInput)
             {
                 switch (symbol)
                 {
                     case '(':
-                        balance++;
+                        depth++;
                         break;
                     case ')':
-                        balance--;
+                        depth--;
                         break;
                 }
 
-                result = balance >= 0;
-
-                if (result == false)
+                if (depth < 0)
                     break;
 
-                if (balance > depth)
-                    depth = balance;
+                if (depth > maxDepth)
+                    maxDepth = depth;
             }
 
-            if (result && balance == 0)
+            if (depth == 0)
             {
                 Console.WriteLine($"скобочное выражение корректное");
-                Console.WriteLine($"максимальная глубина вложения: {depth}");
+                Console.WriteLine($"максимальная глубина вложения: {maxDepth}");
             }
             else
             {
